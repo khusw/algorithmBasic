@@ -20,7 +20,7 @@ def dp(x):
         return 1
     if(x == 2):
         return 2
-    if(arr[x - 1] != 0):
+    if(arr[x - 1]):
         return arr[x - 1]
     else:
         arr[x - 1] = dp(x - 1) + dp(x - 2)
