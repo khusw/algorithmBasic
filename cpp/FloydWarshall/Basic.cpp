@@ -52,8 +52,7 @@
 
 #include <stdio.h>
 #define number 4
-
-int INF = 10000000;
+#define INF 1000000
 
 // 인접 행렬을 나타내는 a[][]
 int a[4][4] = {
@@ -99,8 +98,9 @@ void floydWarshall()
     {
         for (int j = 0; j < number; j++)
         {
-            printf("%d", d[i][j]);
+            printf("%3d ", d[i][j]);
         }
+        printf("\n");
     }
 }
 
