@@ -3,7 +3,7 @@
     즉, 최소 비용 신장 트리를 만들기 위한 알고리즘이다.
     여러개의 도시가 있을 때, 각 도시를 도로를 통해서 연결 하려 할 때,
     최소한의 비용으로만 연결을 시도할 때 사용되는 알고리즘이다.
-
+    
     용어
     노드 = 정점 = 도시 = vertex = node  
     간선 = 거리 = 비용 = edge = weight
@@ -118,7 +118,7 @@ int main()
     sort(v.begin(), v.end());
 
     // 각 정점이 포함된 그래프가 어디인지 저장.
-    int parent[n];
+    int parent[7];
     for (int i = 0; i < n; i++)
     {
         parent[i] = i;
@@ -142,4 +142,12 @@ int main()
 
 /*
     자주 나오므로 꼭 외워야 함.
+*/
+
+/*
+    Dijkstra 와 Kruskal 의 차이
+    Dijkstra 는 어떤 시작점에서 다른 모든 정점을 지나는데 각각의 최소값이 얼마냐를 나타내고
+    Kruskal 은 정점의 갯수가 일부 주어지고, 그 모든 정점들을 연결하기 위한 최소 비용이 얼마인지를 나타냄 (MST (Minimum Spanning Tree) 를 표현함)
+    다 연결하려는데 최소 비용얼마나 Kruskal, A 에서 B 가는데 최소 비용을 어떻게 구하냐 Dijkstra
+    mesh topology 를 구현한다 그러면 Kruskal, Datagram 에서의 라우팅 방법을 구현한다 그러면 Dijkstra
 */
