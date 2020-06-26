@@ -1,5 +1,6 @@
 # 백준 2920 음계
 # https://www.acmicpc.net/problem/2920
+# 추천 풀이 시간 15 분
 scale = [int(x) for x in input().strip().split()]
 
 cnt = 0
