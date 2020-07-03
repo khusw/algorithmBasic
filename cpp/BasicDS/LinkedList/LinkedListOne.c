@@ -11,32 +11,61 @@ typedef struct
     struct Node *next;
 } Node;
 
-Node *head;
+Node *head; // 첫 시작 노드를 전역 변수로 선언
+
+void addFront(Node *root, int data)
+{
+    Node *node = (Node *)malloc(sizeof(Node));
+    node->data = data;
+    node->next = root->next;
+    root->next = node;
+}
+
+void removeFront(Node *root)
+{
+    Node *front = root->next;
+    root->next = front->next;
+    free(front);
+}
+
+void freeAll(Node *root)
+{
+    // 이 코드의 문제는 head 를 할당 해제 하지 않는 다는 것.
+    Node *cur = head->next; // 헤드 다음 포인터
+    while (cur != NULL)
+    { // 다음 노드가 존재하면
+        Node *next = cur->next;
+        free(cur);
+        cur = next;
+    }
+}
+
+void showAll(Node *root)
+{
+    Node *node = root->next;
+    while (node != NULL)
+    {
+        printf("%d ", node->data);
+        node = node->next;
+    }
+}
 
 int main()
 {
     head = (Node *)malloc(sizeof(Node));
+    head->next = NULL;
 
-    Node *node1 = (Node *)malloc(sizeof(Node));
-    node1->data = 10;
+    addFront(head, 1);
+    addFront(head, 2);
+    addFront(head, 4);
+    addFront(head, 7);
+    addFront(head, 3);
+    addFront(head, 6);
 
-    head->next = node1;
+    removeFront(head);
 
-    Node *node2 = (Node *)malloc(sizeof(Node));
-    node2->data = 20;
-
-    node1->next = node2;
-
-    Node *cur = head->next; // 포인터 역할
-    while (cur != NULL)
-    { // 처음 노드 부터 끝 노드 까지 순회
-        printf("%d", cur->data);
-        cur = cur->next;
-    }
-
-    free(head);
-    free(node1);
-    free(node2);
+    showAll(head);
+    freeAll(head);
 
     system("pause");
     return 0;
