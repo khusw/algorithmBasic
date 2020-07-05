@@ -41,7 +41,7 @@ void KMP(string parent, string pattern)
         }
         if (parent[i] == pattern[j])
         {
-            if (j == parentSize - 1)
+            if (j == patternSize - 1)
             {
                 printf("%d 에서 일치하는 문자열을 발견 \n", i - patternSize + 2);
                 j = table[j];
