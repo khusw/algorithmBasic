@@ -30,7 +30,7 @@ int num = 7;
 int c[7];           // 배열 c 는 방문 여부를 검증하기 위한 배열임 = visited
 vector<int> adj[8]; // 각 노드의 인접노드를 의미하는 vector = adj
 
-void dfs(int x) // x 는 방문할 노드의 인덱스 번호임
+void dfs(int x) // x 는 방문할 노드의 인덱스 번호임 (시작 노드 번호를 나타냄)
 {
     if (c[x])
         return;       // c[x] 라는 것은 그 노드의 방문여부를 말하며, 방문했으면 true 가 되므로 1 이 되어서 return
@@ -46,27 +46,39 @@ void dfs(int x) // x 는 방문할 노드의 인덱스 번호임
 
 int main()
 {
+    // 1, 2
     adj[1].push_back(2);
     adj[2].push_back(1);
 
+    // 1, 3
     adj[1].push_back(3);
     adj[3].push_back(1);
 
+    // 2, 3
     adj[2].push_back(3);
     adj[3].push_back(2);
 
+    // 2, 4
     adj[2].push_back(4);
     adj[4].push_back(2);
 
+    // 2, 5
     adj[2].push_back(5);
     adj[5].push_back(2);
 
+    // 3, 6
     adj[3].push_back(6);
     adj[6].push_back(3);
 
+    // 3, 7
     adj[3].push_back(7);
     adj[7].push_back(3);
 
+    // 4, 5
+    adj[4].push_back(5);
+    adj[5].push_back(4);
+
+    // 6, 7
     adj[6].push_back(7);
     adj[7].push_back(6);
 
