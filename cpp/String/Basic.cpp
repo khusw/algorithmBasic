@@ -30,6 +30,8 @@ void find(string str)
 {
     if (str.find("is") == string::npos)
     {
+        // find 함수는 해당 문자열이 처음 나오는 인덱스 번호를 리턴한다
+        // find 함수로 찾지 못한 경우 string::npos 를 리턴한다.
         cout << "찾는 문자열이 없다" << '\n';
     }
     else
