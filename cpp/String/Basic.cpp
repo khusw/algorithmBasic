@@ -25,6 +25,19 @@ void IStringStream(string str)
     }
 }
 
+// string 의 find 를 이용한 구분
+void find(string str)
+{
+    if (str.find("is") == string::npos)
+    {
+        cout << "찾는 문자열이 없다" << '\n';
+    }
+    else
+    {
+        cout << str.find("is") << "index 에서 찾았다" << '\n';
+    }
+}
+
 int main()
 {
     string str = "This is String";
