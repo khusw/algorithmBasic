@@ -20,7 +20,7 @@ def SelectionSort(data):
         data[index] = temp
 
     for item in data:
-        print(item)
+        print(item, end=' ')
 
 
 listA = [1, 10, 8, 7, 6, 3, 4, 2, 5, 9]
