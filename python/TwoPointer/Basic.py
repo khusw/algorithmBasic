@@ -34,6 +34,7 @@ def TwoPointer(data):
             end += 1
         if summation == M:
             count += 1
+        # data[start] 를 빼주는 이유는, start 가 1 증가할때, 그에 따른 부분합도 달라지기 때문이다.
         summation -= data[start]
 
     print("M 의 갯수 : ", count)
