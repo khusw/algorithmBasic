@@ -22,27 +22,16 @@
 
    3. 큐가 비어 있을 때 까지 반복한다.
 
-   아래의 예제는 BFS 로 전체 노드를 다 탐색하는게 아니라
-   일부 노드만 탐색해서 그 결과 값을 배열로 리턴하는 문제를 구현한다
-   예를 들면 A에서 시작해서 E로 갈려 할 때,
-   A->B->E (가중치 합 : 3),
-   A->C->E (가중치 합 : 6),의 두가지 경로가 있다 하면,
-   [3, 6] 이 리턴되도록 만든다
-   자기자신의 노드로 가면 0, 갈수 없는 노드로 향하면 -1이다.
-   노드간 방향은 단 방향이다.
+   아래의 예제는 가장 기본적인 BFS 방법을 구현한 코드다
 '''
 from queue import Queue
 
 
-def search(start, end):
-    if start == end:
-        lengthList.append(0)
-        return
+def search(node):
 
     q = Queue()
-    q.put(start)
-    checked[start] = True
-    summation = 0  # 한 경로의 합을 표현
+    q.put(node)
+    checked[node] = True
 
     while(not(q.empty())):
         x = q.get()  # x 는 시작, 중간 노드가 됨
@@ -51,19 +40,9 @@ def search(start, end):
             y = adj[x][i]
             if y == -1:
                 continue  # -1 이면 갈 수 있는 경로가 없다
-            if not(checked[y]):
-                q.put(y)
-                checked[y] = True
-                summation += y
-                if y == end:
-                    summation += y
-                    lengthList.append(summation)
-                    checked[y] = False
-                    summation = 0
-
-    if len(lengthList) == 0:
-        lengthList.append(-1)  # 아무것도 없다는 뜻은 경로가 없다는 뜻이다.
-        return
+            if not(checked[i]):
+                q.put(i)
+                checked[i] = True
 
 
 n = 5
@@ -75,8 +54,6 @@ adj = [
     [-1, -1, -1, 0, 3],  # D
     [-1, -1, -1, -1, 0],  # E
 ]
-lengthList = []  # 가중치 합 결과를 담은 배열
-search(0, 4)
-print(lengthList)
+search(0)
 # A B C D E 5개의 노드가 있다고 가정하고 가중치는 임의로 설정
 # adj 의 0 은 자기자신 노드를 의미하고, -1 은 연결되지 않은 노드임
