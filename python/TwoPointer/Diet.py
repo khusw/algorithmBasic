@@ -17,7 +17,7 @@
     3. arr[end] - arr[start] 가 G 보다 크면 start 를 하나 증가시킨다.
     4. arr[end] - arr[start] 가 G 와 동일하면 배열에 end 값을 추가한다.
     5. 이 과정을 start 와 end 가 배열의 끝까지 도달하여 더이상 나가지 못할 때 까지 진행한다.
-    
+
 '''
 import sys
 
@@ -34,7 +34,7 @@ def search():
 n = 317  # 루트 십만 은 약 316.xx 이다.
 weightList = [i * i for i in range(n)]  # 가능한 몸무게를 담는 리스트
 resultList = []  # 결과값 담는 리스트
-G = int(float(sys.stdin.readline()))  # 입력값
+G = int((sys.stdin.readline())  # 입력값
 search()
 
 for item in resultList:
