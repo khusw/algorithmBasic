@@ -24,14 +24,14 @@ import sys
 
 def search():
     end = 0
-    for start in range(len(weightList) - 1):
-        while weightList[end] - weightList[start] < G and end < G:
+    for start in range(len(weightList)):
+        while weightList[end] - weightList[start] < G and end < n:
             end += 1
         if weightList[end] - weightList[start] == G:
             resultList.append(end)
 
 
-n = 318  # 루트 십만 은 약 316.xx 이다.
+n = 317  # 루트 십만 은 약 316.xx 이다.
 weightList = [i * i for i in range(n)]  # 가능한 몸무게를 담는 리스트
 resultList = []  # 결과값 담는 리스트
 G = int(float(sys.stdin.readline()))  # 입력값
