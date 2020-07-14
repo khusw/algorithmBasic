@@ -1,5 +1,7 @@
 '''
     Bianry Gap
+    (이 문제는 codility 에서 제공한다
+    https://app.codility.com/programmers/lessons/1-iterations/binary_gap/start/)
 
     임의의 양의 정수가 주어지고,
     이 양의 정수를 이진수로 전환한 뒤에
@@ -13,6 +15,8 @@
 
     이런식으로 bianry gap 을 구해서 binary gap 중 가장 큰 값을 리턴하는 함수를 만들어야 한다.
 '''
+
+
 def make_binary(data):
     remainder = 0
     quotient = data
@@ -22,14 +26,15 @@ def make_binary(data):
         data = quotient
         binaryList.append(remainder)
     binaryList.reverse()
-    
+
+
 def two_pointer():
     length = len(binaryList)
-    cnt = 0 # counting binary gap 
+    cnt = 0  # counting binary gap
     start = 0
     end = 1
-    check = False # check whether '1' existed or not.
-    
+    check = False  # check whether '1' existed or not.
+
     while(start < length and end < length):
         if binaryList[end] == 0:
             end += 1
@@ -39,18 +44,20 @@ def two_pointer():
             end += 1
             check = True
             binaryGapList.append(cnt)
-            cnt = 0 
-    
+            cnt = 0
+
     if check:
         binaryGapList.sort()
         return binaryGapList[-1]
     else:
         return 0
 
+
 def solution(N):
     make_binary(N)
     answer = two_pointer()
     return answer
 
-binaryList = [] 
-binaryGapList = [] 
+
+binaryList = []
+binaryGapList = []
