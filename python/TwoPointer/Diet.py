@@ -19,23 +19,28 @@
     5. 이 과정을 start 와 end 가 배열의 끝까지 도달하여 더이상 나가지 못할 때 까지 진행한다.
 
 '''
-import sys
 
 
 def search():
+    start = 0
     end = 0
-    for start in range(len(weightList)):
-        while weightList[end] - weightList[start] < G and end < n:
+    check = False
+    while(start <= end and end < n):
+        W = weightList[end] - weightList[start]
+        if(W < G):
             end += 1
-        if weightList[end] - weightList[start] == G:
-            resultList.append(end)
+        elif (W == G):
+            check = True
+            print(end)
+            end += 1
+        else:
+            start += 1
+
+    if(not(check)):
+        print(-1)
 
 
 n = 317  # 루트 십만 은 약 316.xx 이다.
 weightList = [i * i for i in range(n)]  # 가능한 몸무게를 담는 리스트
-resultList = []  # 결과값 담는 리스트
-G = int((sys.stdin.readline())  # 입력값
+G = int(input())
 search()
-
-for item in resultList:
-    print(item)
