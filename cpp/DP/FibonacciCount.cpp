@@ -23,39 +23,30 @@
     가 되어,
     fib(1) 은 2번, fib(0) 는 1번 호출 된다.
 */
-
 #include <iostream>
-#define MAX 41
 
 using namespace std;
 
-int vec[MAX];
-int vec_zero[MAX];
-int vec_one[MAX];
-int fib[MAX];
-int zero_cnt;
-int one_cnt;
+int mem[41] = {
+    0,
+    1,
+};
 
-void sequence(int num)
+int fib(int num)
 {
     if (num == 0)
     {
-        fib[0] = 1;
-        zero_cnt = fib[num];
-        return;
+        return mem[0];
     }
-    if (num > 0)
+    else if (num == 1)
     {
-        fib[0] = 0;
-        fib[1] = 1;
-        for (int i = 2; i <= num; i++)
-        {
-            fib[i] = fib[i - 1] + fib[i - 2];
-        }
+        return mem[1];
     }
-
-    zero_cnt = fib[num - 1];
-    one_cnt = fib[num];
+    else if (mem[num] > 0)
+    {
+        return mem[num];
+    }
+    return mem[num] = fib(num - 1) + fib(num - 2);
 }
 
 int main()
@@ -66,23 +57,14 @@ int main()
     int T;
     cin >> T;
 
+    int num;
     for (int i = 0; i < T; i++)
     {
-        cin >> vec[i];
-    }
-
-    for (int i = 0; i < T; i++)
-    {
-        sequence(vec[i]);
-        vec_zero[i] = zero_cnt;
-        vec_one[i] = one_cnt;
-        zero_cnt = 0;
-        one_cnt = 0;
-    }
-
-    for (int i = 0; i < T; i++)
-    {
-        cout << vec_zero[i] << " " << vec_one[i] << '\n';
+        cin >> num;
+        if (num == 0)
+            cout << "1 0" << '\n';
+        else
+            cout << fib(num - 1) << " " << fib(num) << '\n';
     }
 
     return 0;
