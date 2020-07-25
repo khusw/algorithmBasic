@@ -114,7 +114,7 @@ void findString(string parent, string pattern)
 
 int main()
 {
-    string parent = "ababcabacaabacaaba";
+    string parent = "ababacabacaabacaaba";
     string pattern = "abacaaba";
     findString(parent, pattern);
     return 0;
