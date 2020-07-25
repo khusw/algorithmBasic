@@ -77,8 +77,10 @@ void findString(string parent, string pattern)
             {
                 // 초기의 hash 값을 설정해서 부여하는 방식
                 // 새 해시값 = 기존의 해시값 + 아스키 코드값 * 2의 승수
+                // 패턴의 오른쪽 끝에서 부터 2의 승수를 2^n-1 , 2^n-2 ... 2^0 순으로 돌림.
+                // 그래서 parent[patternSize - 1 - j] 가 되는 것 (1을 빼는 것은 배열이 0부터 시작하기 때문에, j 는 뒤에서 앞으로 하기 위함)
                 parentHash = parentHash + parent[patternSize - 1 - j] * power;
-                patternHash = patternHash + pattern[patternSize - i - j] * power;
+                patternHash = patternHash + pattern[patternSize - 1 - j] * power;
                 if (j < patternSize - 1)
                     power = power * 2;
             }
