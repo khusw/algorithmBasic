@@ -76,6 +76,7 @@ void findString(string parent, string pattern)
             for (int j = 0; j < patternSize; j++)
             {
                 // 초기의 hash 값을 설정해서 부여하는 방식
+                // 새 해시값 = 기존의 해시값 + 아스키 코드값 * 2의 승수
                 parentHash = parentHash + parent[patternSize - 1 - j] * power;
                 patternHash = patternHash + pattern[patternSize - i - j] * power;
                 if (j < patternSize - 1)
