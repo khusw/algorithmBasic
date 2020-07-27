@@ -48,6 +48,8 @@
     총 n 개의 글자 (banana 에선 n = 6) 를 가지고, 정렬하므로 O(nlogn)
     한번 정렬 시도시 O(logn) * 전체 정렬 시도시 O(nlogn) 
     그러므로 총 정렬 시간은 O(nlog^2n) 이 소요된다.
+
+    https://www.crocus.co.kr/613
 */
 
 #include <cstdio>
