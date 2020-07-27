@@ -64,6 +64,11 @@ int t, n, g[MAX_N], tg[MAX_N], SA[MAX_N];
 
 bool cmp(int x, int y)
 {
+    // x, y 의 값은 SA 내부의 원소 값임
+    // 예를들어 글자 banana 를 기준으로 했을 때 초기 SA = {0, 1, 2, 3, 4, 5} 이며,
+    // x = 1, y = 0
+    // x = 2, y = 1
+    // ...
     // 그룹 번호를 비교하는 함수
     if (g[x] == g[y])
     {
