@@ -62,7 +62,7 @@ using namespace std;
 
 char str[MAX_N]; // 문자열이 들어가는 배열
 int t, n, g[MAX_N], tg[MAX_N], SA[MAX_N];
-// t 는 단어의 위치, n 은 str 길이, g 는 그룹, tg 는 팀 그룹, SA 는 Suffix Array
+// t 는 단어의 위치, n 은 str 길이, g 는 그룹, tg 는 g 배열값 변경을 위한 임시 배열 (temp group 임), SA 는 Suffix Array
 // t 는 맨처음 개념 익혔을 때, d = 1, 2, 4 ... 와 같은 의미이다. 즉, 2의 배수로 증대되는 값이란 뜻.
 
 bool cmp(int x, int y)
