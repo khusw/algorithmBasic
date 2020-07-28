@@ -63,6 +63,7 @@ using namespace std;
 char str[MAX_N]; // 문자열이 들어가는 배열
 int t, n, g[MAX_N], tg[MAX_N], SA[MAX_N];
 // t 는 단어의 위치, n 은 str 길이, g 는 그룹, tg 는 팀 그룹, SA 는 Suffix Array
+// t 는 맨처음 개념 익혔을 때, d = 1, 2, 4 ... 와 같은 의미이다. 즉, 2의 배수로 증대되는 값이란 뜻.
 
 bool cmp(int x, int y)
 {
@@ -70,7 +71,7 @@ bool cmp(int x, int y)
     // 예를들어 글자 banana 를 기준으로 했을 때 초기 SA = {0, 1, 2, 3, 4, 5} 이며,
     // x = 1, y = 0
     // x = 2, y = 1
-    // ...
+    // 아래의 코드가 그룹 번호 비교 함수인 이유는 t 값이 그룹원을 구성하는 최소 단위를 나타내기에 그룹 번호를 기준으로 비교한다고 볼 수 있음
     // 그룹 번호를 비교하는 함수
     if (g[x] == g[y])
     {
@@ -78,7 +79,7 @@ bool cmp(int x, int y)
     }
 
     // 그룹 번호가 다를 때.
-    return g[x] < g[y];
+    return g[x] < g[y]; // 오름 차순 정렬을 의미.
 }
 
 void getSA(const char *str)
@@ -92,7 +93,7 @@ void getSA(const char *str)
         // d = 1 일 때, 그룹 배열과 SA 를 초기화해주는 작업임.
         // SA 는 인덱스 번호만을 값으로 담고 있고, G 는 아스키 코드값 뺄셈연산을 통해서 나온 값을 기준으로 그룹을 나눈 배열임.
         SA[i] = i;
-        g[i] = str[i] - 'a';
+        g[i] = str[i] - 'a'; // 첫글자 기준으로 아스키 코드값 연산하여 그룹 매핑
     }
 
     // 1, 2, 4, 8 .. 순으로 정렬
@@ -119,7 +120,7 @@ void getSA(const char *str)
             g[i] = tg[i];
         }
 
-        t <<= 1; // bitwise assignment operator
+        t <<= 1; // bitwise assignment operator, t *= 2 와 동일함.
     }
 }
 
