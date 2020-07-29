@@ -83,7 +83,7 @@ void dijkstra(int start) // start 시작할 노드 번호
                     // d[current] 가 1 -> 4 로 갈때의 비용이고,
                     // a[current][j] 가 4 -> 3 로 갈때의 비용을 의미한다.
                     // 그러므로 직통 보다 작은경우 더 적은 값으로 갱신 되도록
-                    // d[j] 를 좌변의 값으로 바꾼 것이다.
+                    // d[j] 를 우변의 값으로 바꾼 것이다.
                     d[j] = d[current] + a[current][j];
                 }
             }
