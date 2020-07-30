@@ -35,6 +35,8 @@ void dijkstra(int start)
         // 여기서 pair 의 first 는 index 를 의미하며,
         // pair 의 second 는 간선의 가중치 값을 의미한다.
         // 음수를 붙이는 이유는 짧은 것이 먼저 오도록 하기 위함이다.
+        // STL 에서 제공하는 기본 Priority_queue 의 경우
+        // max heap 기반으로 작성되기 때문에 제일 큰게 맨 앞에 온다.
         int distance = -pq.top().second;
 
         pq.pop();
