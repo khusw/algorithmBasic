@@ -24,13 +24,13 @@
 
 using namespace std;
 
-int s[MAX];
+int s[MAX]; // 집합 s
 int combi[MAX];
-int k = -1;
+int k = -1; // 입력 k
 
 void dfs(int start, int depth)
 {
-    if (depth == 6)
+    if (depth == 6) // 백트래킹의 제한조건에 해당하는 부분
     {
         for (int i = 0; i < 6; i++)
         {
@@ -42,6 +42,8 @@ void dfs(int start, int depth)
 
     for (int i = start; i < k; i++)
     {
+        // 재귀함수가 끝나고 돌아오면 s 의 다음 인덱스로 넘어가서 부여하기 때문에
+        // 이것은 백트래킹 방법을 그래도 적용한 형태임
         combi[depth] = s[i];
         dfs(i + 1, depth + 1);
     }
