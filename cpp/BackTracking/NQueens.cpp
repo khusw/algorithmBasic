@@ -33,10 +33,10 @@ int N;          // 문제에서 입력받을 값.
 int col[15];    // column 을 말함 최대 15 by 15 정방행렬이라 가정함.
 int result = 0; // 최종 가능한 경우의 수의 갯수를 말함.
 
-bool promising(int i) // i 는 행 인덱스
+bool promising(int i) // i 는 열 인덱스
 {
     // 백트래킹에 사용될 유효성 검증을 위한 함수
-    for (int j = 0; j < i; j++) // j 는 열 인덱스
+    for (int j = 0; j < i; j++) // j 는 행 인덱스
     {
         // 새 퀸(col[i])과 기존의 퀸(col[j]) 이 같은 행에 있거나, 대각선에 있는 경우
         if (col[j] == col[i] || abs(col[i] - col[j]) == (i - j))
@@ -57,10 +57,10 @@ void N_Queen(int i)
     {
         for (int j = 0; j < N; j++)
         {
-            col[i] = j;       // (i, j) 번째에 j 값을 넣음 (i, j) 에 퀸이 들어갔다는 의미
+            col[i] = j;       // (j, i) 번째에 j 값을 넣음 (j, i) 에 퀸이 들어갔다는 의미, i 가 열, j 가 행임
             if (promising(i)) // 유효성 검증 함수를 추가하여, 유효한 대상이면 아래의 코드를 수행
             {
-                N_Queen(i + 1); // 유효성 검증이 된 경우라면, 다음 행으로 넘어가서 수행하도록 재귀 함수 작성 (j 는 열 인덱스, i 는 행 인덱스)
+                N_Queen(i + 1); // 유효성 검증이 된 경우라면, 다음 행으로 넘어가서 수행하도록 재귀 함수 작성 (i 가 열, j 가 행 임)
             }
         }
     }
