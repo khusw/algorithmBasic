@@ -1,34 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <iostream>
+#include <cmath>
+
+using namespace std;
 
 int main()
 {
-    int x1, y1, r1, x2, y2, r2, T;
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
 
-    scanf("%d", &T);
+    int T, x1, y1, r1, x2, y2, r2;
+    double s;
 
-    for (int i = 0; i < T; i++) {
-        scanf("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
-        double s = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    cin >> T;
+
+    while (T--) {
+        cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
+        s = sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
 
         if (x1 == x2 && y1 == y2) {
             if (r1 == r2) {
-                printf("-1\n");
+                cout << -1 << '\n';
             }
             else {
-                printf("0\n");
+                cout << 0 << '\n';
             }
         }
-        else if (abs(r1 - r2) < s && s < (r1 + r2)) {
-            printf("2\n");
+        else if (abs(r1 - r2) < s && s < r1 + r2) {
+            cout << 2 << '\n';
         }
-        else if (abs(r1 - r2) == s || s == (r2 + r1)) {
-            printf("1\n");
+        else if (abs(r1 - r2) == s || s == r1 + r2) {
+            cout << 1 << '\n';
         }
         else {
-            printf("0\n");
+            cout << 0 << '\n';
         }
     }
+
     return 0;
 }
