@@ -37,7 +37,7 @@ vector<int> solution(int n) {
     vector<int> answer;
 
     vector<vector<int>> vec(n, vector<int>(n));
-    fill(vec.begin(), vec.end(), vector<int>(0, 0));
+    fill(vec.begin(), vec.end(), vector<int>(n, 0));
 
     int value = 1;  // 배열에 넣을 값.
     int cnt = n;    // n, n - 1, n - 2, .... 1 값으로 점점 하락하면서 value 를 넣어야함.
