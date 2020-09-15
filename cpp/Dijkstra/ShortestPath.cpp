@@ -37,50 +37,44 @@ int checked[20001];
 vector<pair<int, int>> adj[20001];
 int dist[20001];
 
-void dijkstra(int start)
-{
+void dijkstra(int start) {
     dist[start] = 0;
     priority_queue<pair<int, int>> pq;
     pq.push(make_pair(0, start));
 
-    while (!pq.empty())
-    {
-        int distance = -pq.top().first;
+    while (!pq.empty()) {
+        int distance = -pq.top().first;  // 최대 힙이라서 최소힙으로 바꾸기 위해 - 붙임
         int current = pq.top().second;
         pq.pop();
 
         if (dist[current] < distance)
             continue;
 
-        for (int i = 0; i < adj[current].size(); i++)
+        for (int i = 0; i < adj[current].size(); i++)  // adj[cur].size 만큼 돌리는 것은 인접 노드에 대한 거리 정보를 가져오기 위함
         {
             int next = adj[current][i].first;
             int nextDistance = distance + adj[current][i].second;
 
-            if (nextDistance < dist[next])
-            {
-                dist[next] = nextDistance;
+            if (nextDistance < dist[next]) {
+                dist[next] = nextDistance;  // dist 배열에 대한 실질적 갱신이 이뤄지는 부분
                 pq.push(make_pair(-nextDistance, next));
             }
         }
     }
 }
 
-int main()
-{
+int main() {
     cin.tie(nullptr);
     ios_base::sync_with_stdio(false);
 
     cin >> V >> E;
     cin >> K;
 
-    for (int i = 1; i <= V; i++)
-    {
+    for (int i = 1; i <= V; i++) {
         dist[i] = INF;
     }
 
-    for (int i = 0; i < E; i++)
-    {
+    for (int i = 0; i < E; i++) {
         int u, v, w;
         cin >> u >> v >> w;
         adj[u].push_back(make_pair(v, w));
@@ -88,8 +82,7 @@ int main()
 
     dijkstra(K);
 
-    for (int i = 1; i <= V; i++)
-    {
+    for (int i = 1; i <= V; i++) {
         if (dist[i] != INF)
             cout << dist[i] << '\n';
         else
