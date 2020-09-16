@@ -38,8 +38,8 @@
 #define INF 987654321
 #define MIN(A, B) A > B ? B : A
 
-typedef pair<int, int> P;
 using namespace std;
+typedef pair<int, int> P;
 
 int N, E, mid1, mid2, answer;
 bool check, check2;
