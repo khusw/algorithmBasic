@@ -29,3 +29,11 @@ Anyone can contribute this repository if you follow below guidlines.
 
 3. Review <br>
    : Everyone can review each other's codes. If you find someone's code is logically wrong, create issue.
+
+4. Others<br>
+   - Problem Solving<br>
+     : If your code cannot get 100% score on the algorithm site, pull request will be refused.
+     <br>
+     If there is more efficient code exists, please put the code on issue.
+   - Algorithm code<br>
+     : If there is more efficient code exists, please put the code on issue.
