@@ -1,5 +1,6 @@
 /*
     BOJ 2750 수 정렬하기.
+    https://www.acmicpc.net/problem/2750
     보통 온라인 상의 PS 의 경우 초당 1억번의 연산을 수행할 수 있음
     그래서 제한 조건에 따른 초과 여부를 주의할 필요가 있음.
 
@@ -13,26 +14,21 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     int N, temp;
     cin >> N;
     int *arr = new int[N];
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         cin >> temp;
         arr[i] = temp;
     }
 
     // selection sort 를 사용할때.
     int tmp, min, index;
-    for (int x = 0; x < N; x++)
-    {
+    for (int x = 0; x < N; x++) {
         min = 9999;
-        for (int y = x; y < N; y++)
-        {
-            if (min > arr[y])
-            {
+        for (int y = x; y < N; y++) {
+            if (min > arr[y]) {
                 min = arr[y];
                 index = y;
             }
@@ -56,8 +52,7 @@ int main()
         }
     */
 
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         cout << arr[i] << '\n';
     }
     delete[] arr;
