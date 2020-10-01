@@ -1,5 +1,6 @@
 /*
     BOJ 2751 수 정렬하기 2
+    https://www.acmicpc.net/problem/2751
     이 문제 같은 경우 2750 과 다른 점은 
     입력의 갯수가 총 백만개가 들어올 수 있다는게 차이점임.
 
@@ -12,40 +13,38 @@
 
 #include <stdio.h>
 
-void quickSort(int *data, int start, int end)
-{
-    int key = start;   // 시작 인덱스
-    int i = start + 1; // 맨 앞 바로 다음 인덱스
-    int j = end;       // 마지막 번째 인덱스
-    int temp;          // swap 을 위한 변수
+void quickSort(int *data, int start, int end) {
+    int key = start;    // 시작 인덱스
+    int i = start + 1;  // 맨 앞 바로 다음 인덱스
+    int j = end;        // 마지막 번째 인덱스
+    int temp;           // swap 을 위한 변수
 
-    if (start >= end) // start 가 end 보다 크거나 같다는 것은 원소의 갯수가 1개 라는뜻.
+    if (start >= end)  // start 가 end 보다 크거나 같다는 것은 원소의 갯수가 1개 라는뜻.
     {
         return;
     }
 
-    while (i <= j) // 엇갈리는 상태가 되기 전까지 계속 반복
+    while (i <= j)  // 엇갈리는 상태가 되기 전까지 계속 반복
     {
-        while (data[i] <= data[key]) // 큰 값을 찾을 때 까지 이므로 key 가 더 클때 i++
+        while (data[i] <= data[key])  // 큰 값을 찾을 때 까지 이므로 key 가 더 클때 i++
         {
             // 좌측 부분 배열에 대한 인덱스 찾기
             // 오름 차순 정렬이므로, pivot 보다 큰 값을 찾을 때까지 i 인덱스를 늘림
             i++;
         }
-        while (data[j] >= data[key] && j > start) // 키 보다 작은 값을 찾을 때 까지 이므로 key 가 더 작을 때 j--
+        while (data[j] >= data[key] && j > start)  // 키 보다 작은 값을 찾을 때 까지 이므로 key 가 더 작을 때 j--
         {
             // 우측 부분 배열에 대한 인덱스 찾기
             // 우측 부분 배열이므로 pivot 보다 작은 값을 찾을 때까지 j 인덱스를 줄임
             // 추가적으로 j 가 start 보다 작아지면 안되므로, j > start 조건을 달아야함.
             j--;
         }
-        if (i > j) // 엇갈린 상황.
+        if (i > j)  // 엇갈린 상황.
         {
             temp = data[j];
             data[j] = data[key];
             data[key] = temp;
-        }
-        else // 엇갈린 상황이 아니므로, key 와 swap 인게 아니라, i 와 j 번째를 swap
+        } else  // 엇갈린 상황이 아니므로, key 와 swap 인게 아니라, i 와 j 번째를 swap
         {
             temp = data[i];
             data[i] = data[j];
@@ -57,19 +56,16 @@ void quickSort(int *data, int start, int end)
     quickSort(data, j + 1, end);
 }
 
-int main()
-{
+int main() {
     int N;
     scanf("%d", &N);
     int *arr = new int[N];
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         scanf("%d", &arr[i]);
     }
     quickSort(arr, 0, N - 1);
 
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         printf("%d\n", arr[i]);
     }
     delete[] arr;
