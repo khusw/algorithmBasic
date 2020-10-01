@@ -1,5 +1,4 @@
 /*
-    more difficult string sort
     BOJ 1431 조금 더 복잡한 문자열 정렬
     https://www.acmicpc.net/problem/1431
 
@@ -13,24 +12,21 @@
     3. 두 조건으로도 비교 불가능하면 사전순으로 정렬 (숫자가 알파벳 보다 사전순으로 적다.)
 */
 
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
 int n;
 string a[20000];
 
-int getSum(string a)
-{
-    int length = a.length(), sum = 0; // sum 은 문쟈열 a 에 속하는 모든 숫자들의 합을 구하기 위한 변수
-    for (int i = 0; i < length; i++)
-    {
+int getSum(string a) {
+    int length = a.length(), sum = 0;  // sum 은 문쟈열 a 에 속하는 모든 숫자들의 합을 구하기 위한 변수
+    for (int i = 0; i < length; i++) {
         // 숫자인 경우에만 더하기 위한 조건문
         // 두 문자를 뺀다는 것은 아스키 코드 값을 뺀다는 말과 같음
         // 0 과 9 사이의 아스키 코드값에 속하는지를 묻는 조건문임.
-        if (a[i] - '0' <= 9 && a[i] - '0' >= 0)
-        {
+        if (a[i] - '0' <= 9 && a[i] - '0' >= 0) {
             // 이 조건에 속하면 숫자에 해당하는 아스키 코드 값을 갖고 있다는 의미이며,
             // 현재 문자 - 0 을하면 해당하는 숫자가 나옴
             // 문자열로써 0 은 아스키 코드 값으로 48 이고, 입력된 문자(a[i]) 의 아스키 코드 값을 서로 빼면
@@ -43,34 +39,25 @@ int getSum(string a)
     return sum;
 }
 
-bool compare(string a, string b)
-{
-    if (a.length() < b.length())
-    {
+bool compare(string a, string b) {
+    if (a.length() < b.length()) {
         // 앞에가 더 적은 글자수를 가질 때
         return 1;
-    }
-    else if (a.length() > b.length())
-    {
+    } else if (a.length() > b.length()) {
         // 뒤에가 더 적은 글자수를 가질 때
         return 0;
-    }
-    else
-    {
+    } else {
         // 두 개의 글자수가 같을때
         // getSum 이라는 custom 함수를 제작하여
         // 문자열 내에서 숫자만 추출해서 그 합을 리턴하게 하고
         // 숫자의 합을 통해서 두 문자를 비교
         int aSum = getSum(a);
         int bSum = getSum(b);
-        if (aSum != bSum)
-        {
+        if (aSum != bSum) {
             // 두 문자의 숫자의 합이 동일하지 않으면
             // 둘 중 숫자의 합이 작은게 먼저오도록 리턴 값을 조정하고,
             return aSum < bSum;
-        }
-        else
-        {
+        } else {
             // 두 문자열의 숫자의 합이 같은 경우 (숫자로 비교할 수 있는게 아니므로)
             // 문자열의 사전순 자체를 비교해서 리턴.
             return a < b;
@@ -78,25 +65,13 @@ bool compare(string a, string b)
     }
 }
 
-int main()
-{
+int main() {
     cin >> n;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
     sort(a, a + n, compare);
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cout << a[i] << '\n';
     }
 }
-
-/*
-    여태까지 심화 정렬 문제를 풀면서 깨달은 것은
-    이전에 내가 했던 것 처럼 아스키 코드 일일이 비교하기 위해서 반복문을 돌리는게 아니라
-    sort() 함수를 사용해서 비교 기준을 설정하기 위한 compare 함수를 설정하고
-    bool 값을 리턴하는 것이 훨씬 문제 풀이 속도도 빠르고, 더 효율적인 것을 알 수 있다.
-    이전까진 진짜 몰랐기 때문에 그렇게 밖에 풀 수 없었음
-    역시 문제를 많이 풀어봐야되.
-*/
