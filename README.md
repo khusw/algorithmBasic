@@ -2,16 +2,16 @@
 
 ### This repository is meant for solving algorithm problems and practicing algorithm theory.
 
-Anyone can contribute this repository if you follow below guidlines.
+Anyone can contribute this repository if you follow below the guidelines.
 
-1. File name<br>
+1. Filename<br>
    : You should create a name for the file as below.<br>
    "site name" + "problem number" + "\_" + "your nickname".cpp
 
    - Examples<br>
      : CF1426C_khusw.cpp, LC852_khusw.cpp
 
-   "site name" means a coding problem solving site such as codeforce, leetcode, baekjoon online judge ...
+   "site name" means a coding problem-solving site such as codeforce, leetcode, baekjoon online judge ...
 
    when determining "site name", it should be abbreviated.<br>
    (codeforce -> CF, leetcode -> LC, baekjoon online judge -> BOJ ...)
@@ -22,18 +22,18 @@ Anyone can contribute this repository if you follow below guidlines.
      : DFS_khusw.cpp, DP_khusw.cpp, KMP_khusw.cpp
 
 2. Folder name<br>
-   : Folder name should be specified as "the language name used" / "the algorithm name used"
+   : Folder name should be specified as "the language name used" + "/" + "the algorithm name used"
 
    - Examples<br>
      : cpp/DP, cpp/DFS, cpp/Dijkstra
 
 3. Review <br>
-   : Everyone can review each other's codes. If you find someone's code is logically wrong, create issue.
+   : Everyone can review each other's codes. If you find someone's code is logically wrong, create an issue.
 
 4. Others<br>
    - Problem Solving<br>
-     : If your code cannot get 100% score on the algorithm site, pull request will be refused.
+     : If your code cannot get a 100% score on the algorithm site, the pull request will be refused.
      <br>
-     If there is more efficient code, please put the code on issue.
+     If there is a more efficient code, please put the code on the issue.
    - Algorithm code<br>
-     : If there is more efficient code, please put the code on issue.
+     : If there is a more efficient code, please put the code on the issue.
