@@ -1,8 +1,6 @@
 /*
     BOJ 2630 색종이 만들기
     https://www.acmicpc.net/problem/2630
-
-    분할정복을 사용해서 푸는 문제
 */
 
 #include <iostream>

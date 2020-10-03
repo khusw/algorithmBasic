@@ -1,11 +1,6 @@
 /*
     BOJ 1916 최소 비용 구하기
     https://www.acmicpc.net/problem/1916
-
-    다익스트라를 이용해서 푸는 문제
-
-    도시가 노드가 되고,
-    버스가 간선이 되는 문제.
 */
 
 #include <iostream>
@@ -19,14 +14,14 @@ using namespace std;
 int checked[MAX];
 vector<pair<int, int>> adj[MAX];
 int dist[MAX];
-int N, M, S, E;  // 도시 수(노드의 갯수), 버스 수(간선의 갯수), 시작 노드, 끝 노드
+int N, M, S, E;
 int INF = 987654321;
 
 void dijkstra(int start) {
     dist[start] = 0;
     checked[start] = true;
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push(make_pair(0, start));  // 거리 , 노드 (우선순위 큐의 정렬기준은 first)
+    pq.push(make_pair(0, start));
 
     while (!pq.empty()) {
         int node = pq.top().second;

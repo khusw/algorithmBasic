@@ -12,14 +12,14 @@
 
 using namespace std;
 
-int N, M, X, answer;  // 마을의 수, 간선 수, 목적지
+int N, M, X, answer;
 vector<pair<int, int>> adj[MAX];
 
 int dijkstra(int start, int end) {
     vector<int> dist(N + 1, INF);
     dist[start] = 0;
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push(make_pair(0, start));  // 거리, 노드 번호
+    pq.push(make_pair(0, start));
     while (!pq.empty()) {
         int node = pq.top().second;
         int node_distance = pq.top().first;

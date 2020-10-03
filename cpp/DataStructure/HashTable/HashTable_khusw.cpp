@@ -1,15 +1,3 @@
-/*
-    기본 해시 테이블 구현
-
-    해시 테이블에는 
-    key, value, bucket, hash function 
-    4가지 요소가 있어야 하며
-    hash function 은 key 값을 hash 로 바꾸는 역할을 한다는 점에 유의한다 (value 가 아니라)
-
-    아래의 예제는 10칸짜리 배열이 있고 
-    그 배열 안에 숫자를 어떻게 넣어서 매칭할것인지에 대한 내용이다.
-*/
-
 #include <bits/stdc++.h>
 
 using namespace std;

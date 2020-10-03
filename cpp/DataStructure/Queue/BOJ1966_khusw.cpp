@@ -31,7 +31,7 @@ int main() {
     for (int i = 0; i < T; i++) {
         int N, M;
         cin >> N >> M;
-        priority_queue<pair<int, int>> pq;  // 중요도, 인덱스번호
+        priority_queue<pair<int, int>> pq;
         for (int i = 0; i < N; i++) {
             int temp;
             cin >> temp;

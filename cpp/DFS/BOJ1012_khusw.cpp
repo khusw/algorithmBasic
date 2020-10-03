@@ -1,12 +1,6 @@
 /*
     BOJ 1012 유기농 배추
     https://www.acmicpc.net/problem/1012
-
-    DFS 를 이용해서 푸는 문제로 이동 방향은 상하좌우가 있다.
-    상하좌우 네 방향에 다른 배추가 위치해 있다면 인접한 경우이다.
-    만약 인접한 배추가 없는 경우 다른 그룹으로 취급한다
-
-    이문제는 DFS 를 이용해서 타 그룹간 분할 시 그룹의 총 갯수를 묻는 문제이다.
 */
 
 #include <cstring>
@@ -15,10 +9,10 @@
 
 using namespace std;
 
-int T, M, N, K;  // T 는 테스트 케이스, M 은 가로 길이, N 은 세로 길이, K 는 배추위치 갯수
+int T, M, N, K;
 int checked[MAX][MAX];
 int adj[MAX][MAX];
-int dx[4] = {0, 0, -1, 1};  // 상하좌우
+int dx[4] = {0, 0, -1, 1};
 int dy[4] = {1, -1, 0, 0};
 
 void dfs(int x, int y) {
