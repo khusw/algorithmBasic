@@ -67,14 +67,6 @@ void init() {
     }
     parent.append(parent);
     parent.pop_back();
-    // pop_back() 을 해서 맨 뒷 글자를 제거한 이유
-    // 원형 판을 구현하지 않고 편의상 코드를 작성하기 위해서
-    // parent 의 크기를 두배로 늘렸을 뿐 실제로는 2배 늘린게 아님
-    // 그래서 두배 늘렸을 때
-    // I W A N T M E A T I W A N T M E A T
-    // I W A N T M E A T I W A N T M E A T
-    // 처럼 2번 카운팅 되기 때문에, 오류로 처리될 수 있음.
-    // 실제로는 단 한번만 일치하는데 두번 일치한다고 인식됬기 때문에.
 }
 
 int gcd(int a, int b) {
