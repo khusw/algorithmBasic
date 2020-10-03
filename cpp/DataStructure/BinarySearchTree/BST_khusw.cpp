@@ -1,7 +1,3 @@
-/*
-    BST 를 c++ 로 구현한 코드
-*/
-
 #include <iostream>
 
 using namespace std;

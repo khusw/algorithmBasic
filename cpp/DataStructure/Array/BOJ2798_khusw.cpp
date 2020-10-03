@@ -1,6 +1,5 @@
 /*
-    BOJ 2798 문제
-    Brute Force 방법을 이용한 Black Jack 문제
+    BOJ 2798
     https://www.acmicpc.net/problem/2798
 */
 

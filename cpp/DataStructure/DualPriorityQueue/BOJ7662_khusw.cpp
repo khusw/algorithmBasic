@@ -26,12 +26,10 @@ int main() {
             } else {
                 if (!ms.empty()) {
                     if (num == 1) {
-                        // 최대 값 삭제
                         auto iter = ms.end();
                         iter--;
                         ms.erase(iter);
                     } else {
-                        // 최소 값 삭제
                         ms.erase(ms.begin());
                     }
                 }

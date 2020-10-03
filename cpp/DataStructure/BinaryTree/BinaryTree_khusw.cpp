@@ -1,18 +1,3 @@
-/*
-    Binary Tree
-
-    이진 트리란 자식 노드를 최대 두개를 갖는 트리 구조를 말하며,
-    각 트리의 노드들은 데이터, 좌우 자식 노드에 관한 포인터 값을 갖는다.
-
-    이진 트리와 이진 탐색 트리의 차이점은
-    이진 트리는 노드간 정렬이 되어있지 않고
-    이진 탐색 트리는 노드간 키값 정렬이 되어 있는 구조이다.
-    자세한 부분은 아래 링크 참조
-    https://www.geeksforgeeks.org/difference-between-binary-tree-and-binary-search-tree/
-
-    이를 c++ 로 직접 구현해보면 아래와 같다.
-*/
-
 #include <iostream>
 #include <queue>
 
@@ -93,8 +78,8 @@ void Tree::delete_node(int data) {
         queue<Node*> q;
         q.push(this->root);
 
-        Node* temp;             // 끝노드
-        Node* key_node = NULL;  // data 와 일치하는 노드
+        Node* temp;
+        Node* key_node = NULL;
 
         while (!q.empty()) {
             temp = q.front();
