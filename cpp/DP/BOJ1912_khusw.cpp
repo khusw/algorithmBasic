@@ -1,11 +1,6 @@
 /*
     BOJ 1912 연속합
     https://www.acmicpc.net/problem/1912
-
-    DP 를 활용한 문제로,
-    이전 누적 합(dp[i - 1])과 현재값(arr[i])의 총합한것과 현재 인덱스의 값 중 큰 값을 dp[] 배열에 넣는다.
-    dp[i] = max(dp[i - 1], arr[i]);
-    answer = max(answer, dp[i]);
 */
 
 #include <algorithm>

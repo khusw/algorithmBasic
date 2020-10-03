@@ -9,8 +9,8 @@
 using namespace std;
 
 int N;
-int adj[1001][3];  // 행은 집의 갯수, 열은 RGB 3개 값
-int D[1001][3];    // 거리를 담는 이차원 배열
+int adj[1001][3];
+int D[1001][3];
 
 void find_min_value() {
     for (int i = 1; i <= N; i++) {
