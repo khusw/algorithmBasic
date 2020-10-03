@@ -1,9 +1,6 @@
 /*
     BOJ 7576 토마토
     https://www.acmicpc.net/problem/7576
-
-    BOJ 1697 과 유사한 문제유형.
-    기본 BFS 에 추가적으로 몇가지를 더 할 수 있어야 풀 수 있는 문제.
 */
 
 #include <iostream>
@@ -40,13 +37,13 @@ int main() {
     cin.tie(0);
     ios_base::sync_with_stdio(0);
 
-    cin >> M >> N;  // 가로 세로 입력 (입력이 가로,세로 인것은 각각 열의갯수, 행의 갯수를 의미함, x,y 가아니라 y,x 란뜻)
+    cin >> M >> N;
 
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             cin >> adj[i][j];
             if (adj[i][j] == 1) {
-                q.push({i, j});  // 초기의 익은 토마토만 큐에 넣기 위함 (y,x) 를 넣음
+                q.push({i, j});
             }
         }
     }
@@ -56,7 +53,6 @@ int main() {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             if (adj[i][j] == 0) {
-                // 하나라도 익지 않았다면 익을수 없는 토마토 상자라는 의미
                 cout << "-1" << '\n';
                 return 0;
             }
@@ -67,7 +63,6 @@ int main() {
         }
     }
 
-    // 토마토 배열의 값이 1부터 시작하므로 1을 빼야 맞음.
     cout << answer - 1 << '\n';
 
     return 0;

@@ -1,8 +1,6 @@
 /*
     BOJ 1697 숨바꼭질
     https://www.acmicpc.net/problem/1697
-
-    BFS 를 이용해서 세가지의 케이스를 통과해야되는 문제
 */
 
 #include <iostream>
@@ -22,8 +20,6 @@ void bfs(int num) {
         int size = q.size();
 
         for (int i = 0; i < size; i++) {
-            // 큐 사이즈 만큼 돌리는 이유는
-            // 큐 내부의 값들에 대해서 +1, -1, *2 를 수행해야 하기 때문이다.
             int x = q.front();
             q.pop();
             if (x == K) {
@@ -43,7 +39,7 @@ void bfs(int num) {
                 q.push(2 * x);
             }
         }
-        cnt++;  // 큐 사이즈 만큼 한바퀴 돌면 다음 초로 넘어감.
+        cnt++;
     }
 }
 
