@@ -1,97 +1,45 @@
-/*
-    Topology Sort (위상 정렬)
-    위상 정렬이란 순서가 정해져 있는 작업을 차례로 수행해야 할 때,
-    그 순서를 결정해주기 위해 사용하는 알고리즘을 말한다.
-
-    위상정렬은 순서를 결정해주는 알고리즘으로
-    꼭 하나의 순서만 존재하는 것은 아님
-    다른 방식의 순서가 존재할 수 있다.
-
-    위상정렬의 특징은 DAG(Directed Acyclic Graph) 에만 적용이 가능하다
-    DAG 란 용어를 보면 알겠지만, 방향성이 존재하지만 cycle 은 존재하지 않는 그래프
-    에서만 적용이 가능하다.
-    중요한 것은 "사이클이 존재하면 위상 정렬을 수행할 수 없다는 것이다."
-    사이클이 발생하면 시작점이 존재하지 않기 때문임
-
-    위상 정렬 알고리즘은 두가지 답을 제시하는데
-    현재 그래프가 위상 정렬이 가능한가?
-    가능한 경우 그 결과가 어떻게 되는가? 이다
-
-    위상정렬을 구현할 때는 스택 또는 큐를 이용해서 구현하며
-
-    여기 코드에서는 큐를 사용해서 구현함
-
-    위상 정렬을 사용할 때 '진입 차수' 라는 개념이 등장하는데
-    이 진입차수란 어떤 노드를 가기 위해서 이전에 거쳐가야할 필요성이 있는 노드의 총 갯수가 몇개냐를 의미함
-    나동빈 블로그 보면
-    6번 노드가 4번과 5번 노드와 연결되었음을 볼 수 있음
-    그래서 6번 노드의 차수는 2임
-
-    위상정렬의 정렬법은 아래의 4가지 수행을 따름
-    1. 진입차수가 0인 정점을 큐에 삽입 (초기 수행시 당연히 시작 노드가 될 것)
-    2. 큐에서 원소를 꺼내서 연결된 모든 간선을 제거함
-    3. 간선 제거 이후에 진입 차수가 0이 된 정점을 큐에 삽입함.
-    4. 큐가 empty 가 될 때 까지 2,3 번의 과정을 반복한다.
-    만약 4번 하는 중에 모든 원소를 방문 하기도 전에 큐가 비어 있다면 사이클이 존재한다는 것이며,
-    모든 원소를 방문 했다면 큐에서 꺼낸 순서가 위상 정렬의 결과가 된다.
-
-*/
-
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 #define MAX 10
 
 using namespace std;
 
-int n, inDegree[MAX]; // n 은 전체 노드 수, inDegree 는 진입 차수를 담고 있는 배열
+int n, inDegree[MAX];
 
-vector<int> a[MAX]; // 벡터에 배열을 붙이면 2차원 배열이랑 똑같다
-// a 배열은 인접 행렬과 동일한 의미를 갖는다
-// a[1] 은 노드 1 이 연결된 노드가 무엇들이 있는지 알려줌
+vector<int> a[MAX];
 
-void topologySort()
-{
-    int result[MAX]; // result 는 위상정렬을 한 이후 노드 순서 결과를 담는 배열
-    queue<int> q;    // 노드 번호를 넣을 큐
+void topologySort() {
+    int result[MAX];
+    queue<int> q;
 
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
         if (inDegree[i] == 0)
-            q.push(i); // 진입 차수가 0 일 때 큐에 넣음
+            q.push(i);
     }
 
-    for (int i = 1; i <= n; i++)
-    {
-        // 위상 정렬이 전부 수행되려면 n 개의 노드 전부를 탐색해야함
-        if (q.empty())
-        {
-            // n 개의 노드를 전부 방문하기도 전에 queue 가 비어 있다면
-            // 사이클이 있다는 뜻
+    for (int i = 1; i <= n; i++) {
+        if (q.empty()) {
             printf("사이클이 발생");
             return;
         }
-        int x = q.front();                    // 큐의 맨 앞 원소를 담고
-        q.pop();                              // 큐에서 원소를 뺌
-        result[i] = x;                        // 큐에서 얻은 원소를 결과 배열에 넣는다.
-        for (int i = 0; i < a[x].size(); i++) // 인접행렬을 돌림
-        {
-            int y = a[x][i];        // 연결된 노드의 번호를 가져옴
-            if (--inDegree[y] == 0) // 진입차수를 줄여서 0이 되면
-            {
-                q.push(y); // 큐에 삽입
+        int x = q.front();
+        q.pop();
+        result[i] = x;
+        for (int i = 0; i < a[x].size(); i++) {
+            int y = a[x][i];
+            if (--inDegree[y] == 0) {
+                q.push(y);
             }
         }
     }
 
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
         printf("%d ", result[i]);
     }
 }
 
-int main()
-{
+int main() {
     n = 7;
     a[1].push_back(2);
     inDegree[2]++;
@@ -110,11 +58,3 @@ int main()
     topologySort();
     return 0;
 }
-
-/*
-    참고로 위상 정렬의 시간 복잡도는
-    O(V + E) 라고 한다
-
-    V 는 정점의 갯수
-    E 는 간선의 값을 의미한다 
-*/

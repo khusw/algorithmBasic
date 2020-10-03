@@ -6,8 +6,7 @@
 
 using namespace std;
 
-const int MAX = 1e5;  // 십만
-
+const int MAX = 1e5;
 int W;
 
 int main() {
@@ -18,11 +17,11 @@ int main() {
 
     bool check = false;
 
-    int left = 1;   // 과거
-    int right = 1;  // 현재
+    int left = 1;
+    int right = 1;
 
     while (left <= right and right <= MAX) {
-        int G = right * right - left * left;  // G 는 현재^2 - 과거^2
+        int G = right * right - left * left;
 
         if (G < W)
             right++;
