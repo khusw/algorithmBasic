@@ -9,12 +9,14 @@ Anyone can contribute this repository if you follow below the guidelines.
    "site name" + "problem number" + "\_" + "your nickname".cpp
 
    - Examples<br>
-     : CF1426C_khusw.cpp, LC852_khusw.cpp
+     : CF1426C_khusw.cpp, BOJ1004_khusw.cpp
 
-   "site name" means a coding problem-solving site such as codeforce, leetcode, baekjoon online judge ...
+   "site name" means a coding problem-solving site such as codeforce, baekjoon online judge
 
    when determining "site name", it should be abbreviated.<br>
-   (codeforce -> CF, leetcode -> LC, baekjoon online judge -> BOJ ...)
+   (codeforce -> CF, baekjoon online judge -> BOJ)<br>
+
+   <b> This repository only use two sites, "codeforces", "baekjoon online judge"</b>
 
    If you have simply created the basic code for the algorithm, rather than solving the algorithm problem, you should name the file AlgorithmName_nickname.cpp
 
