@@ -14,7 +14,7 @@ Anyone can contribute this repository if you follow below the guidelines.
    "site name" means a coding problem-solving site such as codeforce, baekjoon online judge
 
    when determining "site name", it should be abbreviated.<br>
-   (codeforce -> CF, baekjoon online judge -> BOJ)<br>
+   (codeforces -> CF, baekjoon online judge -> BOJ)<br>
 
    <b> This repository only use two sites, "codeforces", "baekjoon online judge"</b>
 
@@ -40,6 +40,6 @@ Anyone can contribute this repository if you follow below the guidelines.
    - Algorithm code<br>
      : If there is a more efficient code, please put the code on the issue.
    - Language<br>
-     : This Repository only use <b>c++.
+     : This Repository only use <b>c++.</b>
    - Comments<br>
      : Don't write unncessary comments in your code.
