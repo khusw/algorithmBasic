@@ -37,3 +37,5 @@ Anyone can contribute this repository if you follow below the guidelines.
      If there is a more efficient code, please put the code on the issue.
    - Algorithm code<br>
      : If there is a more efficient code, please put the code on the issue.
+   - Language
+     : This Repository only use c++.
