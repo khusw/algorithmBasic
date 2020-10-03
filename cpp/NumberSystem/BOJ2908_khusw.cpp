@@ -1,9 +1,6 @@
 /*
     BOJ 2908 상수
     https://www.acmicpc.net/problem/2908
-
-    세자리의 수 2개가 입력으로 주어지고, 
-    두 수를 거꾸로 뒤집은뒤 뒤집은 두 수 중 큰놈을 출력하는 문제
 */
 
 #include <iostream>

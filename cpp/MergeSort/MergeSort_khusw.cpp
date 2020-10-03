@@ -1,94 +1,45 @@
-/*
-    병합정렬 (merge sort) 는 divide and conquer 방식을 채택한 알고리즘으로,
-    O(N * logN) 의 시간복잡도를 갖는 알고리즘으로, 정확히 반씩 나눠서 수행하는 알고리즘으로써,
-    최악의 경우에도 O(N * logN) 의 수행시간을 보장하는 알고리즘이다. (어찌보면 퀵 정렬의 단점을 보완한것)
-    병합정렬은 "일단 반으로 쪼개고 나중에 합쳐서 정렬해라" 라는게 기본 모토다.
-    일단 데이터가 주어지면 전부 1개 단위로 쪼개고
-    합칠때는 2의 배수 단위로 합친다.
-    합칠때는 쪼개진것들 끼리 정렬을 한 상태로 합친다
-    예를 들면,
-    7 6 5 8 3 5 9 1 이 입력이라 치면
-    67 58 35 19 
-    5678 1359
-    13556789 이런식으로 정렬되는 방식을 말함.
-
-    각 부분집합을 일단 정렬 시킨 후 
-    합칠때 정렬시켜서 합치고
-    나머지 부분집합을 전체 합치면 결국은 정렬이 된다는게 병합정렬의 이론.
-
-    그러면 왜 병합정렬은 O(N*logN) 인가?
-    나동빈 강의를 보면 알겠지만,
-    width 는 입력된 원소의 갯수 N 이고,
-    height 는 log2(N) 형태인것을 알 수 있다.
-    위 예제(8개 수) 에서 보면,
-    width 는 8, height 는 3 (= log2^3) 인것을 알 수 있다.
-    그래서 병합정렬은 최악의 경우라도 항상 O(N*logN) 을 보장하는 것이다.
-*/
-
 #include <stdio.h>
 
 using namespace std;
 
 int number = 8;
-int arr[8]; // 정렬할 배열은 반드시 전역변수로 선언되야 한다.
-// 부분집합을 사용해서 쪼개기 때문에 반드시 전역변수로 선언해야만 사용가능.
+int arr[8];
 
-// merge 함수는 부분집합으로 쪼개면서 합치는 함수
-void merge(int a[], int m, int middle, int n)
-{
-    // m 은 배열의 시작점, middle 은 배열의 중간점, n 은 배열의 끝점 이다.
-    int i = m;          // i 는 부분 배열(좌측)의 첫번째 인덱스
-    int j = middle + 1; // j 는 부분 배열(우측)의 첫번째 인덱스
-    int k = m;          // 병합된 부분 배열의 첫번째 인덱스
-    // 자세한 그림 부분은 나동빈 블로그 참조
-    // 오름차순 정렬 기준이므로, 값이 작은 순서대로 배열에 삽입
-    while (i <= middle && j <= n)
-    {
-        if (a[i] <= a[j])
-        {
+void merge(int a[], int m, int middle, int n) {
+    int i = m;
+    int j = middle + 1;
+    int k = m;
+
+    while (i <= middle && j <= n) {
+        if (a[i] <= a[j]) {
             arr[k] = a[i];
             i++;
-        }
-        else
-        {
+        } else {
             arr[k] = a[j];
             j++;
         }
         k++;
     }
-    // 위의 while 문 까지는 대소 비교를 통해서 병합된 부분배열에 데이터를 넣는 작업인데
-    // 분명 대소 관계비교시에 처리가 되지 않아서 i 인덱스 부분이 먼저 끝나거나,
-    // 혹은 j 인덱스 부분이 먼저 끝나거나 해서 처리되지 않는 대상이 반드시 존재할수도 있다.
-    // 그래서 남은 여분의 데이터를 병합된 부분배열에 넣기 위해 아래와 같은 식을 작성.
-    if (i > middle)
-    { // i 가 먼저 끝나서 j 가 데이터가 남은 경우
-        for (int t = j; t <= n; t++)
-        {
+
+    if (i > middle) {
+        for (int t = j; t <= n; t++) {
+            arr[k] = a[t];
+            k++;
+        }
+    } else {
+        for (int t = i; t <= middle; t++) {
             arr[k] = a[t];
             k++;
         }
     }
-    else
-    {
-        for (int t = i; t <= middle; t++)
-        {
-            arr[k] = a[t];
-            k++;
-        }
-    }
-    // 위에 까지는 (정렬된)부분 배열을 구하는 작업이었다면, (빈 배열 arr 에 기존 데이터 a[] 에 대한 정렬 부분 배열을 넣는 작업)
-    // 이 아래의 코드는 arr 에 넣은 것을 다시 a[] 에 넣는 작업
-    for (int t = m; t <= n; t++)
-    {
+
+    for (int t = m; t <= n; t++) {
         a[t] = arr[t];
     }
 }
 
-// mergeSort 는 반반씩 재귀함수로 쪼개서 원소 각각을 하나로 만들고 그것을 merge 하는 작업.
-void mergeSort(int a[], int m, int n)
-{
-    if (m < n)
-    {
+void mergeSort(int a[], int m, int n) {
+    if (m < n) {
         int middle = (m + n) / 2;
         mergeSort(a, m, middle);
         mergeSort(a, middle + 1, n);
@@ -96,18 +47,10 @@ void mergeSort(int a[], int m, int n)
     }
 }
 
-int main()
-{
+int main() {
     int array[8] = {7, 6, 5, 8, 3, 5, 9, 1};
     mergeSort(array, 0, 7);
-    for (int i = 0; i < 8; i++)
-    {
+    for (int i = 0; i < 8; i++) {
         printf("%d ", array[i]);
     }
 }
-
-/*
-    1. 전역변수로 선언된 배열이 있어야한다.
-    2. 기존의 데이터를 담기위한 추가적인 배열이 필요하기 때문에 메모리 활용에 있어서 비효율적.
-    -> 이를 개선하는 것이 바로 heap sort.
-*/
