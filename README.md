@@ -39,3 +39,5 @@ Anyone can contribute this repository if you follow below the guidelines.
      : If there is a more efficient code, please put the code on the issue.
    - Language<br>
      : This Repository only use <b>c++.
+   - Comments<br>
+     : Don't write unncessary comments in your code.
