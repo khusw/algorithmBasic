@@ -8,7 +8,7 @@
 typedef long long ll;
 using namespace std;
 
-int N, M, K;  // N 은 총 입력될 수의 갯수, M 은 변경이 일어나는 횟수, K 는 구간의 합을 구하는 횟수 이다.
+int N, M, K;
 
 ll build_tree(ll* arr, ll* tree, ll node, ll start, ll end) {
     if (start == end) return tree[node] = arr[start];
@@ -62,12 +62,10 @@ int main() {
     for (int i = 0; i < M + K; i++) {
         cin >> a >> b >> c;
         if (a == 1) {
-            // update 함수를 수행
             ll data = c - arr[b];
             update(tree, 1, 1, N, b, data);
             arr[b] += data;
         } else if (a == 2) {
-            // query 함수를 수행
             cout << query(tree, 1, 1, N, b, c) << '\n';
         }
     }
