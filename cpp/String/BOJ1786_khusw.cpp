@@ -1,17 +1,6 @@
 /*
     BOJ 1786 찾기
     https://www.acmicpc.net/problem/1786
-
-    문자열 탐색 알고리즘은 4개가 주로 나옴
-    1. KMP
-    2. Trie
-    3. Aho Corasic
-    4. Rabin-Karp
-
-    이 중에 2,3 은 상당히 난이도가 높은것 (거의 PS 엔 잘 안나온다고 함)
-
-    문자열 탐색외의 다른 알고리즘으로는 
-    Suffix Array, LCP 등이 있다.
 */
 
 #include <iostream>
@@ -51,8 +40,6 @@ void KMP(string& parent, string& pattern) {
             if (pattern_index == pattern_size - 1) {
                 pattern_index = pi[pattern_index];
                 pPos.push_back(parent_index - pattern_size + 2);
-                // 문제에서 요구하는 문자의 길이는 1번 부터라고 되어 있음
-                // 아무 설명 없이 0번 부터 하는 거라면 parent_index - pattern_size + 1 이 되어야 맞음.
                 pCount++;
             } else {
                 pattern_index++;

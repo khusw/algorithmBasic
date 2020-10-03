@@ -1,14 +1,6 @@
 /*
     BOJ 8958 OX 퀴즈
     https://www.acmicpc.net/problem/8958
-
-    O 와 X 로 주어진 문자열이 주어지고,
-    O 의 갯수에 따라 점수가 결정된다.
-
-    OOXXOXXOOO 이면 점수 카운팅을
-    1 + 2 + 0 + 0 + 1 + 0 + 0 + 1 + 2 + 3 = 10 이 된다.
-
-    O 의 갯수가 점차 누적 되었다가 X 를 만나게 되면 0 으로 초기화 되는 것.
 */
 
 #include <iostream>
