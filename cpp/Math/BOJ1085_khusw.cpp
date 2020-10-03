@@ -14,16 +14,12 @@ int x, y, w, h, answer;
 int distance() {
     int result;
 
-    // 왼쪽 (0, y) 와 (x, y) 사이의 거리
     int left = sqrt(pow((x - 0), 2) + pow((y - y), 2));
 
-    // 오른쪽 (x, y) 와 (w, y) 사이의 거리
     int right = sqrt(pow((w - x), 2) + pow((y - y), 2));
 
-    // 위쪽 (x, y) 와 (x, h) 사이의 거리
     int top = sqrt(pow((x - x), 2) + pow((h - y), 2));
 
-    // 아래쪽 (x, 0) 와 (x, y) 사이의 거리
     int bottom = sqrt(pow((x - x), 2) + pow((y - 0), 2));
 
     result = min(left, min(right, min(top, bottom)));
