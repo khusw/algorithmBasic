@@ -1,9 +1,6 @@
 /*
     BOJ 1654 랜선 자르기
     https://www.acmicpc.net/problem/1654
-
-    BOJ 2805 와 사실상 똑같은 문제
-    https://www.acmicpc.net/problem/2805
 */
 
 #include <iostream>
@@ -44,7 +41,7 @@ int main() {
         line_list.push_back(line);
     }
 
-    binary_search(0, 2147483648);  // 0 ~ 2^31
+    binary_search(0, 2147483648);
 
     return 0;
 }
