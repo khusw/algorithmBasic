@@ -11,7 +11,7 @@ Anyone can contribute this repository if you follow below the guidelines.
    "site name" + "\_" + "problem name" + "\_" + "your nickname".cpp<br>
 
    - Examples<br>
-     : CF1426C_khusw.cpp, BOJ1004_khusw.cpp, CF_Quarrel_khusw.cpp
+     : BOJ1004_khusw.cpp, CF_Quarrel_khusw.cpp
 
    "site name" means a coding problem-solving site such as codeforce, baekjoon online judge
 
