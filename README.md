@@ -6,10 +6,12 @@ Anyone can contribute this repository if you follow below the guidelines.
 
 1. Filename<br>
    : You should create a name for the file as below.<br>
-   "site name" + "problem number" + "\_" + "your nickname".cpp
+   "site name" + "problem number" + "\_" + "your nickname".cpp<br>
+   or<br>
+   "site name" + "\_" + "problem name" + "\_" + "your nickname".cpp<br>
 
    - Examples<br>
-     : CF1426C_khusw.cpp, BOJ1004_khusw.cpp
+     : CF1426C_khusw.cpp, BOJ1004_khusw.cpp, CF_Quarrel_khusw.cpp
 
    "site name" means a coding problem-solving site such as codeforce, baekjoon online judge
 
