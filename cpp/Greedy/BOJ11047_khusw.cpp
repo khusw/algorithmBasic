@@ -1,3 +1,8 @@
+/*
+    BOJ 11047 Coin 0
+    https://www.acmicpc.net/problem/11047
+*/
+
 #include <iostream>
 #include <vector>
 
