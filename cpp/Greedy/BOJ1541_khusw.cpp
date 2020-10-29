@@ -17,7 +17,7 @@ int main() {
 
     int len = input.length(), answer = 0;
     bool check = false;
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i <= len; ++i) {
         if (input[i] == '+' || input[i] == '-' || input[i] == '\0') {
             if (check)
                 answer -= stoi(tmp);
