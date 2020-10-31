@@ -3,44 +3,46 @@
     https://www.acmicpc.net/problem/1966
 */
 
-#include <iostream>
-#include <queue>
-#include <utility>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int T, target;
+int T, N, M;
 
-void print_queue(priority_queue<pair<int, int>>& pq, int m) {
+int solve(queue<pair<int, int>>& q, priority_queue<int>& pq) {
     int cnt = 0;
-    while (!pq.empty()) {
-        cnt++;
-        if (pq.top().second == m) {
-            cout << cnt << '\n';
-            return;
+    while (!q.empty()) {
+        int idx = q.front().first;
+        int val = q.front().second;
+        q.pop();
+
+        if (pq.top() == val) {
+            cnt++;
+            pq.pop();
+            if (idx == M)
+                return cnt;
+        } else {
+            q.push(make_pair(idx, val));
         }
-        pq.pop();
     }
 }
 
 int main() {
     cin.tie(0);
-    ios_base::sync_with_stdio(false);
+    ios_base::sync_with_stdio(0);
 
     cin >> T;
-    for (int i = 0; i < T; i++) {
-        int N, M;
+    for (int i = 0; i < T; ++i) {
         cin >> N >> M;
-        priority_queue<pair<int, int>> pq;
-        for (int i = 0; i < N; i++) {
-            int temp;
-            cin >> temp;
-            pq.push(make_pair(temp, i));
-            if (i == M) {
-                target = temp;
-            }
+        queue<pair<int, int>> q;  // (index, value)
+        priority_queue<int> pq;   // value
+        for (int j = 0; j < N; ++j) {
+            int num;
+            cin >> num;
+            q.push(make_pair(j, num));
+            pq.push(num);
         }
-        print_queue(pq, M);
+        cout << solve(q, pq) << "\n";
     }
 
     return 0;
