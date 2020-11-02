@@ -3,52 +3,24 @@
     https://www.acmicpc.net/problem/2751
 */
 
-#include <stdio.h>
+#include <bits/stdc++.h>
 
-void quickSort(int *data, int start, int end) {
-    int key = start;
-    int i = start + 1;
-    int j = end;
-    int temp;
+#define endl "\n"
 
-    if (start >= end) {
-        return;
-    }
+using namespace std;
 
-    while (i <= j) {
-        while (data[i] <= data[key]) {
-            i++;
-        }
-        while (data[j] >= data[key] && j > start) {
-            j--;
-        }
-        if (i > j) {
-            temp = data[j];
-            data[j] = data[key];
-            data[key] = temp;
-        } else {
-            temp = data[i];
-            data[i] = data[j];
-            data[j] = temp;
-        }
-    }
-
-    quickSort(data, start, j - 1);
-    quickSort(data, j + 1, end);
-}
+int n;
 
 int main() {
-    int N;
-    scanf("%d", &N);
-    int *arr = new int[N];
-    for (int i = 0; i < N; i++) {
-        scanf("%d", &arr[i]);
-    }
-    quickSort(arr, 0, N - 1);
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
 
-    for (int i = 0; i < N; i++) {
-        printf("%d\n", arr[i]);
-    }
-    delete[] arr;
+    cin >> n;
+    vector<int> vec(n, 0);
+    for (int i = 0; i < n; ++i) cin >> vec[i];
+
+    sort(vec.begin(), vec.end());
+
+    for (int i = 0; i < n; ++i) cout << vec[i] << endl;
     return 0;
 }
