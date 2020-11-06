@@ -18,8 +18,6 @@ Anyone can contribute this repository if you follow below the guidelines.
    when determining "site name", it should be abbreviated.<br>
    (codeforces -> CF, baekjoon online judge -> BOJ)<br>
 
-   <b> This repository only use two sites, "codeforces", "baekjoon online judge"</b>
-
    If you have simply created the basic code for the algorithm, rather than solving the algorithm problem, you should name the file AlgorithmName_nickname.cpp
 
    - Examples<br>
