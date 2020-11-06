@@ -13,16 +13,16 @@ typedef long long ll;
 
 ll a, b, c;
 
-ll exponentiation(ll base, ll exponent, ll moduler) {
+ll exponentiation(ll base, ll exponent, ll modular) {
     if (exponent == 0) return 1;
 
-    ll n = exponentiation(base, exponent / 2, moduler);
-    n = n * n % moduler;
+    ll n = exponentiation(base, exponent / 2, modular);
+    n = n * n % modular;
 
     if (exponent % 2 == 0)
         return n;
     else
-        return (base * n) % moduler;
+        return (base * n) % modular;
 }
 
 int main() {
