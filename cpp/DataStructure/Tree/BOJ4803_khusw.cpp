@@ -12,7 +12,7 @@
 
 using namespace std;
 
-int n, m, cnt;
+int n, m;
 
 int cntOfVerticies(vector<vector<int>>& adj, vector<bool>& visited, int node) {
     int cnt = 1;
@@ -44,7 +44,7 @@ int main() {
 
     int tc = 0;
     while (1) {
-        cnt = 0;
+        int cnt = 0;
         tc++;
         cin >> n >> m;
         if (n == 0 && m == 0) break;
