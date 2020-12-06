@@ -61,7 +61,6 @@ void bfs() {
 }
 
 void spread_virus() {
-    q.empty();
     copy_map();
     memset(visited, false, sizeof(visited));
 
@@ -122,9 +121,8 @@ int main() {
             if (vec[i] != -1)
                 answer = min(answer, vec[i]);
         cout << answer << "\n";
-    } else {
+    } else
         cout << -1 << "\n";
-    }
 
     return 0;
 }
