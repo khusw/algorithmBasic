@@ -1,6 +1,6 @@
 ## Training Algorithm
 
-### This repository is meant for problem-solving and practicing algorithm theory.
+### This repository is for problem-solving and practicing algorithm theory.
 
 Anyone can contribute this repository if you follow below the guidelines.
 
