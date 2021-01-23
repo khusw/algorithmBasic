@@ -3,6 +3,7 @@
     https://www.acmicpc.net/problem/17136
 */
 
+#include <algorithm>
 #include <iostream>
 
 #define INF 987654321
