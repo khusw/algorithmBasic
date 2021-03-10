@@ -2,21 +2,19 @@
 
 ### This repository is for problem-solving and practicing algorithm theory.
 
+- - - 
+
 Anyone can contribute this repository if you follow below the guidelines.
+
 
 1. Filename<br>
    : You should create a name for the file as below.<br>
-   "site name" + "problem number" + "\_" + "your nickname".cpp<br>
-   or<br>
-   "site name" + "\_" + "problem name" + "\_" + "your nickname".cpp<br>
+   "problem number" + "\_" + "your nickname".cpp<br>
 
    - Examples<br>
-     : BOJ1004_khusw.cpp, CF_Quarrel_khusw.cpp
-
-   "site name" means a coding problem-solving site such as codeforce, leetcode, baekjoon online judge
-
-   when determining "site name", it should be abbreviated.<br>
-   (codeforces -> CF, baekjoon online judge -> BOJ)<br>
+     : Staircase_khusw.cpp, SimpleArraySum_khusw.cpp
+    
+   <b>This Project only use hackerrank site.</b>
 
    If you have simply created the basic code for the algorithm, rather than solving the algorithm problem, you should name the file AlgorithmName_nickname.cpp
 
