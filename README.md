@@ -9,7 +9,7 @@ Anyone can contribute this repository if you follow below the guidelines.
 
 1. Filename<br>
    : You should create a name for the file as below.<br>
-   "problem number" + "\_" + "your nickname".cpp<br>
+   "problem name" + "\_" + "your nickname".cpp<br>
 
    - Examples<br>
      : Staircase_khusw.cpp, SimpleArraySum_khusw.cpp
